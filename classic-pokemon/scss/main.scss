@@ -1,0 +1,38 @@
+body  {
+    background-image: url(../img/pokemon-background.png);
+}
+
+.battle-container  {
+    display: flex;
+    flex-wrap: nowrap;
+    color: rgba($color: #ffffff, $alpha: 0.5);
+    height: 500px;
+    width: 100%;
+    margin: 10%;
+    padding: 10px;
+    z-index: 2; 
+    .player1  {
+        justify-self: left;
+        margin-right: 10%;
+    }
+    .player2  {
+        justify-self: right;
+        margin-left: 10%;
+    }
+}
+
+.pokemon-img  {
+    img  {
+    max-height: 250px;
+}
+}
+
+.lets-battle  {
+    width: 100%;
+    color: #ffffff;
+    text-align: center;
+}
+
+.poke-selection  {
+    align-self: center;
+}
