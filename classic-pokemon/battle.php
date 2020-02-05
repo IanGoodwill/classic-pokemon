@@ -3,6 +3,7 @@
 <html>
 
 <?php include 'pokemon.class.php'; ?>
+<?php session_start(); ?>
 
 <head>
     <title>Classic Pokemon Battle</title>
@@ -13,11 +14,22 @@
 
     <h1 class="lets-battle">Let's Battle!</h1>
 
+    <a href="./index.php"> Back to selection page</a>
+
+    <section class="versus">
+        <?php echo "You have selected: " ?>
+        <?php  echo  $_POST["poke-selection"]; ?> 
+            <br>
+        <?php echo "Your opponent has selected: " ?>
+        <?php  echo  $_POST["poke-selection-enemy"]; ?> 
+     
+    </section>
+
     <article class="battle-container">
 
         <section class="player1">
 
-        <h2>Welcome <em>Player1</em></h2>
+        <h2>Welcome:  <?php  echo  $_POST["poke-selection"]; ?> </h2>
 
         <ul>
             <li>Battle Log</li>
@@ -25,7 +37,16 @@
 
         <figure class="pokemon-img">
 
-            <img src="./img/bulbasaur.png" aria-label="A picture of a pokemon called Bulbasaur.">
+        <?php
+
+        if($_POST["poke-selection"] == "Bulbasaur")
+        echo '<img src="./img/bulbasaur.png" alt="icon" aria-label="A picture of a pokemon called Bulbasaur.">';
+        if($_POST["poke-selection"] == "Charmander")
+        echo '<img src="./img/charmander.png" alt="icon" aria-label="A picture of a pokemon called Charmander.">';
+        if($_POST["poke-selection"] == "Squirtle")
+        echo '<img src="./img/squirtle.png" alt="icon" aria-label="A picture of a pokemon called Squirtle.">';
+        else echo "Please select a starter Pokemon"
+        ?>
 
         </figure>
 
@@ -41,7 +62,7 @@
 
         </div>
 
-        <button type="button">Attack 1</button>
+        <button type="button"><?php echo  $_POST["Bulbasaur"]['attack1'] ?></button>
         <button type="button">Attack 2</button>
         <button type="button">Attack 3</button>
 
@@ -50,7 +71,7 @@
 
         <section class="player2">
 
-        <h2>Welcome <em>Player2</em></h2>
+        <h2>Welcome:  <?php  echo  $_POST["poke-selection-enemy"]; ?> </h2>
 
         <ul>
             <li>Battle Log</li>
@@ -59,13 +80,13 @@
         <figure class="pokemon-img">
 
         <?php
-        if($name == "Bulbasaur")
-        echo '<img src="./img/bulbasaur.png" alt="icon" aria-label="A picture of a pokemon called Bulbasaur.">';
-        if($name == "Charmander")
-        echo '<img src="./img/charmander.png" alt="icon" aria-label="A picture of a pokemon called Charmander.">';
-        if($name == "Squirtle")
-        echo '<img src="./img/squirtle.png" alt="icon" aria-label="A picture of a pokemon called Squirtle.">';
-        else echo "Please select a starter Pokemon"
+       if($_POST["poke-selection-enemy"] == "Bulbasaur")
+       echo '<img src="./img/bulbasaur.png" alt="icon" aria-label="A picture of a pokemon called Bulbasaur.">';
+       if($_POST["poke-selection-enemy"] == "Charmander")
+       echo '<img src="./img/charmander.png" alt="icon" aria-label="A picture of a pokemon called Charmander.">';
+       if($_POST["poke-selection-enemy"] == "Squirtle")
+       echo '<img src="./img/squirtle.png" alt="icon" aria-label="A picture of a pokemon called Squirtle.">';
+       else echo "Please select a starter Pokemon"
         ?>
 
         </figure>
